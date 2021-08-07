@@ -1,0 +1,49 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="openLeftSide()">menu</mat-icon>
+    </button>
+  <h1>Quản lí học sinh</h1>
+  <span class="menu-spacer" style="width:100px"></span>
+  <div>
+    <a mat-button routerLink = "home" routerLinkActive="active-link">
+      <mat-icon mat-list-icon>home</mat-icon> Home
+    </a>
+    <a mat-button routerLink = "form" routerLinkActive="active-link">
+      <mat-icon>filter_none</mat-icon>Form
+    </a>
+
+  </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #slidenav (closed)="closeLeftSide()">
+    <mat-nav-list>
+      <a mat-list-item routerLink = "home"  routerLinkActive="selected">
+        <mat-icon mat-list-icon>home</mat-icon>Home
+      </a>
+      <a mat-list-item routerLink = "about"  routerLinkActive="selected">
+        <mat-icon mat-list-icon>about</mat-icon>
+      </a>
+      <a mat-list-item routerLink = "form"  routerLinkActive="selected">
+        <mat-icon mat-list-icon>form</mat-icon>
+      </a>
+      <a mat-list-item (click)="slidenav.toggle()" >
+        <mat-icon>close</mat-icon>Close
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div [ngClass]="{
+      'content-move-left':!isOpened,
+      'content-move-right':isOpened
+    }">
+
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

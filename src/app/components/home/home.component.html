@@ -1,0 +1,35 @@
+<span MyBold>Nguyên nè </span>
+
+<p>name value:{{ name }}</p>
+<p>body value:{{ body | json }}</p>
+<p>
+  bạn hiện tại đang có <span style="color: red">{{ posts?.length }}</span>
+</p>
+<br />
+<p-table [value]="posts">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Del</th>
+      <th>Update</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-post>
+    <tr>
+      <td>{{ post.id }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.author }}</td>
+      <td>
+        <button pButton label="Xóa" class="p-button-danger"></button>
+      </td>
+      <td>
+        <button pButton label="Sửa" class="p-button-warning"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<button pButton (click)="addPost()" style="margin-top: 20px">
+  Thêm mới post
+</button>

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.errorMessage{
+  color: red;
+}
+.content-move-right{
+  margin-left: 170px !important;
+  transition: .2s;
+}
+.content-move-left{
+  margin-left: 10px !important;
+  transition: .2s;
+}

@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="name">Name</label>
+  <br>
+  <input type="text" formControlName="name" class="p-inputtext-sm" pInputText required>
+  <br>
+  <span *ngIf="form.controls.name.invalid"   class="errorMessage">
+    * Cần phải nhập tên
+  </span>
+  <br>
+  <label for="">Age</label>
+  <br>
+  <input class="" type="number" pInputText formControlName="age" class="p-inputtext-sm" required>
+  <br>
+  <span *ngIf="form.controls.age.invalid"   class="errorMessage">
+    Cần phải nhập tuổi
+  </span>
+  <br>
+  <button pButton class="btn btn-success" type="submit" [disabled]="!form.valid">Submit</button>
+</form>
